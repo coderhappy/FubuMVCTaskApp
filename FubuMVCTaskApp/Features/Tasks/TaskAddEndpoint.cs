@@ -1,6 +1,12 @@
-﻿using FubuMVC.Core.Continuations;
+﻿using System;
+using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Registration;
 using FubuMVCTaskApp.Core;
-using System;
+using FubuMVC.Validation;
+using FubuValidation;
+using FubuMVC.Validation.Remote;
+using FubuCore.Reflection;
+using FubuLocalization;
 
 namespace FubuMVCTaskApp.Features.Tasks
 {
@@ -41,5 +47,14 @@ namespace FubuMVCTaskApp.Features.Tasks
 
 		public string TaskText { get; set; }
 		public DateTime DateDue { get; set; }
+	}
+
+	public class TaskAddInputOverrides:OverridesFor<TaskAddInput>
+	{
+		public TaskAddInputOverrides()
+		{
+			Property(t => t.TaskText).Required();
+			Property(t => t.DateDue).Required();
+		}
 	}
 }

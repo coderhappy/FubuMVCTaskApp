@@ -4,6 +4,10 @@ using FubuMVC.Core;
 using FubuMVC.StructureMap;
 using StructureMap.Configuration.DSL;
 using FubuMVCTaskApp.Core;
+using FubuMVC.Validation;
+using FubuMVCTaskApp.Features.Tasks;
+using FubuMVC.Validation.UI;
+using FubuMVC.Core.UI;
 
 namespace FubuMVCTaskApp
 {
@@ -40,6 +44,16 @@ namespace FubuMVCTaskApp
 		public MyFubuMvcPolicies()
 		{
 			// This is a DSL to change or add new conventions, policies, or application settings
+
+			/* This isn't working... */
+			AlterSettings<ValidationSettings>(validation =>
+			{
+				validation.ForInputTypesMatching(type => true, t =>
+				{
+					t.Clear();
+					t.RegisterStrategy(RenderingStrategies.Inline);
+				});
+			});
 		}
 	}
 }
