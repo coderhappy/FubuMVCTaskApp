@@ -1,8 +1,12 @@
 <viewdata model="FubuMVCTaskApp.Features.Home.HomeModel" />
 
 <content:main>
-
-	<h1>Welcome!</h1>
-	<p>!{Model.Message}</p>
-	
+	<h2>Tasks</h2>
+	<if condition='string.IsNullOrEmpty(Model.Tasks.ToHtmlString())'>
+		<p>There are no current tasks to do.</p>
+	</if>
+	<ul>
+		${Model.Tasks}
+	</ul>
+	${this.LinkTo<FubuMVCTaskApp.Features.Tasks.TaskAddInput>().Text("Add Task")}
 </content:main>

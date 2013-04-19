@@ -1,0 +1,45 @@
+﻿<viewdata model="FubuMVCTaskApp.Features.Tasks.TaskEditModel" />
+<use namespace="FubuMVCTaskApp.Features.Tasks" />
+
+<content:main>
+	<h2>Edit Task</h2>
+	<strong>
+	${this.FormFor<FubuMVCTaskApp.Features.Tasks.TaskEditModel>()}
+	<div style="display:none;"><Input type="hidden" name="Id"  /></div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span1">
+				Task:
+			</div>
+			<div class="span11">
+				<Input name="TaskText" />
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span1">
+				Due:
+			</div>
+			<div class="span11">
+				<Input name="DateDue" />
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<br /><p><input type="submit" class="btn-small btn-success" value="Save Task"/></p>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				${this.EndForm()}
+				${this.FormFor(new FubuMVCTaskApp.Features.Tasks.TaskDeleteInput(){ Id = Model.Id }) }
+				<p><input type="submit" class="btn-small btn-danger" value="Delete"/></p>
+				${this.EndForm()}
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<p><a class="btn-small btn-info" href="/"><< Back to Task List</a></p>
+			</div>
+		</div>
+	</div>
+</content:main>

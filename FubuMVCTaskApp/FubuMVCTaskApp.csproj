@@ -120,7 +120,14 @@
   <ItemGroup>
     <Compile Include="App_Start\FubuAppStart.cs" />
     <Compile Include="BootstrapFubu.cs" />
+    <Compile Include="Core\AjaxResponse.cs" />
+    <Compile Include="Core\IEntity.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\Repository.cs" />
     <Compile Include="Features\Home\HomeEndpoint.cs" />
+    <Compile Include="Features\Tasks\TaskAddEndpoint.cs" />
+    <Compile Include="Features\Tasks\TaskDeleteEndpoint.cs" />
+    <Compile Include="Features\Tasks\TaskEditEndpoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +135,8 @@
     <Content Include="Shared\Application.spark" />
     <Content Include="Shared\_global.spark" />
     <Content Include="Features\Home\Home.spark" />
+    <Content Include="Features\Tasks\TaskAdd.spark" />
+    <Content Include="Features\Tasks\TaskEdit.spark" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,7 +147,6 @@
   <ItemGroup>
     <Folder Include="Content\scripts\" />
     <Folder Include="Content\styles\" />
-    <Folder Include="Core\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

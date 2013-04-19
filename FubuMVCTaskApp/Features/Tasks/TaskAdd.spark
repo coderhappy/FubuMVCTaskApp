@@ -1,0 +1,56 @@
+﻿<viewdata model="FubuMVCTaskApp.Features.Tasks.TaskAddInput" />
+<use namespace="FubuMVCTaskApp.Features.Tasks" />
+
+#this.Asset("jquery");
+
+<content:main>
+	<h2>Add Task</h2>
+	${this.FormFor<FubuMVCTaskApp.Features.Tasks.TaskAddInput>()}
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span1">
+				Task:
+			</div>
+			<div class="span11">
+				<Input name="TaskText" />
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span1">
+				Due:
+			</div>
+			<div class="span11">
+				<Input name="DateDue" />
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<br /><input type="submit" class="btn-small btn-success" value="Add Task"/>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<br /><p><a class="btn-small btn-info" href="/"><< Back to Task List</a></p>
+			</div>
+		</div>
+	</div>
+	${this.EndForm()}
+	
+	${ this.WriteScriptTags() }
+	<script type="text/javascript">
+		/*
+			Using Assets
+			https://fubumvc.readthedocs.org/en/latest/topics/assets/usingassets.html
+		*/
+		$(document).ready(function () {
+			jsOnLoad();
+		});
+
+		function jsOnLoad() {
+			$('input[name="TaskText"]').focus();
+		}
+	</script>
+</content:main>
+
+
+
